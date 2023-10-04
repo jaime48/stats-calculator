@@ -1,0 +1,16 @@
+version: "3"
+services:
+  golang:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    volumes:
+      - ./:/opt/app/api
+    restart: unless-stopped
+    networks: 
+      - internal
+
+networks:
+  internal:
+    driver: bridge
